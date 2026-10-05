@@ -5,4 +5,5 @@ This catalog contains selected theoretical modules transformed into practical ex
 ## 🗂️ Modules Structure
 
 | Module | Topic | Description | 
+| :--- | :--- | :---: |
 | **Module X** | lorem inpus... | lorem inpus... |
