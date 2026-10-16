@@ -40,3 +40,47 @@ You can run any auditor instantly without cloud credentials:
 # Example: Running the Defense in Depth auditor in mock mode
 cd Defense_in_Depth/
 python did_cli.py scan --mock
+```
+
+---
+
+## 🛠️ Usage
+
+The tool uses standard library `argparse` for a robust command-line interface.
+Display help menu:
+```bash
+python srm_cli.py -h
+```
+
+1. Run audit in an isolated virtual environment (Mock Mode):
+```bash
+python srm_cli.py scan --mock
+```
+
+2. Scan a real AWS account and save the JSON report:
+```bash
+python srm_cli.py scan --profile default --output ./reports/srm_scan_results.json
+```
+
+---
+
+## 📊 Sample Output (JSON)
+
+```bash
+{
+    "metadata": {
+        "philosophy": "Customer is responsible for security 'IN the cloud' (services configuration, IAM, data, patching).",
+        "total_checks": 2,
+        "failed_checks": 1
+    },
+    "findings": [
+        {
+            "service": "S3",
+            "resource": "vulnerable-leak-bucket",
+            "responsibility_layer": "Data Security (Customer)",
+            "check": "Block Public Access Enabled",
+            "status": "FAIL"
+        }
+    ]
+}
+```
