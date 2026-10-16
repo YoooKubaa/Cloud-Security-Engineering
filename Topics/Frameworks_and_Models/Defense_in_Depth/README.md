@@ -31,7 +31,7 @@ pip install boto3 moto
 ---
 
 ## 🛠️ Usage
-The tool uses standard library argparse for a robust command-line interface.
+The tool uses standard library `argparse` for a robust command-line interface.
 Display help menu:
 ```bash
 python did_cli.py -h
