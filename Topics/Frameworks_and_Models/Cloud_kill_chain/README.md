@@ -26,3 +26,43 @@ In cloud environments, compromise happens in minutes. Waiting for data exfiltrat
 3. Install required dependencies:
 ```bash
 pip install boto3 moto
+```
+
+---
+
+## 🛠️ Usage
+The tool uses standard library `argparse` for command-line execution.
+Display help menu:
+```bash
+python ckc_cli.py -h
+```
+
+1. Run posture audit in an isolated virtual environment (Mock Mode):
+```bash
+python ckc_cli.py scan --mock
+```
+
+2. Scan a real AWS account and save the JSON report:
+```bash
+python ckc_cli.py scan --profile production-profile --output ./reports/ckc_audit_report.jsonpython ckc_cli.py scan --profile production-profile --output ./reports/ckc_audit_report.json
+```
+
+## 📊 Sample Output (JSON)
+```bash
+{
+    "metadata": {
+        "philosophy": "Cloud Kill Chain: Prevent rapid compromise by detecting early-stage vectors (Discovery, PrivEsc, Defense Evasion).",
+        "total_checks": 2,
+        "failed_checks": 1
+    },
+    "findings": [
+        {
+            "service": "CloudTrail",
+            "resource": "default-trail",
+            "kill_chain_stage": "Defense Evasion",
+            "check": "Audit Logging Active",
+            "status": "PASS"
+        }
+    ]
+}
+```
