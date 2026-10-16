@@ -26,3 +26,45 @@ This tool audits critical AWS assets (such as S3 buckets) across multiple securi
 3. Install required dependencies:
 ```bash
 pip install boto3 moto
+```
+
+---
+
+## 🛠️ Usage
+The tool uses standard library argparse for a robust command-line interface.
+Display help menu:
+```bash
+python did_cli.py -h
+```
+
+1. Run multi-layer audit in an isolated virtual environment (Mock Mode):
+```bash
+python did_cli.py scan --mock
+```
+
+2. Scan a real AWS account and save the JSON report:
+```bash
+python did_cli.py scan --profile production-profile --output ./reports/did_audit_report.json
+```
+
+---
+
+## 📊 Sample Output (JSON)
+```bash
+{
+    "metadata": {
+        "philosophy": "Defense in Depth: Multiple independent security controls protecting the same asset.",
+        "total_checks": 2,
+        "failed_checks": 1
+    },
+    "findings": [
+        {
+            "service": "S3",
+            "resource": "partially-exposed-bucket",
+            "defense_layers_checked": 3,
+            "layers_passed": 1,
+            "status": "FAIL"
+        }
+    ]
+}
+```
