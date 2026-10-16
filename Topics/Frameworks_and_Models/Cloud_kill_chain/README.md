@@ -47,6 +47,8 @@ python ckc_cli.py scan --mock
 python ckc_cli.py scan --profile production-profile --output ./reports/ckc_audit_report.jsonpython ckc_cli.py scan --profile production-profile --output ./reports/ckc_audit_report.json
 ```
 
+---
+
 ## 📊 Sample Output (JSON)
 ```bash
 {
