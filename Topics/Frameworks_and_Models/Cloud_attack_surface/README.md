@@ -26,3 +26,46 @@ Instead of guessing what is exposed, ASM-Auditor systematically inventories and 
 3. Install required dependencies:
 ```bash
 pip install boto3 moto
+```
+
+---
+
+## 🛠️ Usage
+The tool uses standard library `argparse` for a robust command-line interface.
+Display help menu:
+```bash
+python asm_cli.py -h
+```
+
+1. Run attack surface discovery in an isolated virtual environment (Mock Mode):
+```bash
+python asm_cli.py scan --mock
+```
+
+2. Scan a real AWS account and save the JSON report:
+```bash
+python asm_cli.py scan --profile production-profile --output ./reports/asm_audit_report.json
+```
+
+---
+
+## 📊 Sample Output (JSON)
+
+```bash 
+{
+    "metadata": {
+        "philosophy": "Attack Surface Management: Continuously map and evaluate dynamic cloud exposure points.",
+        "total_checks": 3,
+        "failed_checks": 1
+    },
+    "findings": [
+        {
+            "service": "EC2",
+            "resource": "sg-0123456789abcdef0",
+            "surface_category": "Network Ingress",
+            "check": "Unrestricted Internet Access (0.0.0.0/0)",
+            "status": "FAIL"
+        }
+    ]
+}
+```
