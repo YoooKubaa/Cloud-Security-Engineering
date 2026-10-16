@@ -22,9 +22,50 @@ Instead of manual log triage, CAM-Mapper identifies adversary behaviors across t
 3. No external SDK required for core parsing (pure Python standard library), making it lightweight and lightning-fast!
 
 ## 🛠️ Usage
-
 The tool uses standard library `argparse` for command-line execution.
-
-**Display help menu:**
+Display help menu:
 ```bash
 python cam_mapper.py -h
+```
+
+1. Generate and analyze a sample malicious log file (Demo Mode):
+```bash
+python cam_mapper.py analyze --sample
+```
+
+2. Analyze a custom CloudTrail log file and save the JSON report:
+```bash
+python cam_mapper.py analyze --input ./logs/cloudtrail_events.json --output ./reports/cam_analysis.json
+```
+
+---
+
+## 📊 Sample Output (JSON)
+
+```bash
+{
+    "metadata": {
+        "philosophy": "Cloud ATT&CK Mapper: Translating cloud telemetry into actionable threat intelligence.",
+        "total_events_analyzed": 3,
+        "matched_techniques_count": 2
+    },
+    "mapped_findings": [
+        {
+            "event_name": "CreateAccessKey",
+            "username": "compromised-dev",
+            "tactic": "Persistence",
+            "technique_id": "T1098.001",
+            "technique_name": "Account Manipulation: Additional Cloud Credentials",
+            "severity": "HIGH"
+        },
+        {
+            "event_name": "StopLogging",
+            "username": "attacker",
+            "tactic": "Defense Evasion",
+            "technique_id": "T1562.008",
+            "technique_name": "Impair Defenses: Disable Cloud Trail",
+            "severity": "CRITICAL"
+        }
+    ]
+}
+```
