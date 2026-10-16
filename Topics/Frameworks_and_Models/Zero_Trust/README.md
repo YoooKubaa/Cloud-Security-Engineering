@@ -23,3 +23,46 @@ Instead of relying on a traditional perimeter-based security model, ZT-Auditor i
 3. Install required dependencies:
 ```bash
 pip install boto3 moto
+```
+
+---
+
+## 🛠️ Usage
+
+The tool uses standard library argparse for a robust command-line interface.
+Display help menu:
+```bash
+python zt_cli.py -h
+```
+
+1. Run audit in an isolated virtual environment (Mock Mode):
+```bash
+python zt_cli.py scan --mock
+```
+
+2. Scan a real AWS account using a profile and save the JSON report:
+```bash
+python zt_cli.py scan --profile production-profile --output ./reports/zt_audit_report.json
+```
+
+---
+
+## 📊 Sample Output (JSON)
+```bash
+{
+    "metadata": {
+        "philosophy": "Zero Trust Model: Never Trust, Always Verify. Enforcing IMDSv2 and strict network boundaries.",
+        "total_checks": 2,
+        "failed_checks": 1
+    },
+    "findings": [
+        {
+            "service": "EC2",
+            "resource": "i-0123456789abcdef0",
+            "zero_trust_pillar": "Compute Security (IMDSv2)",
+            "check": "Metadata Service Version 2 Required",
+            "status": "FAIL"
+        }
+    ]
+}
+```
