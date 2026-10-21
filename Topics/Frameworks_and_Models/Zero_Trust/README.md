@@ -48,7 +48,7 @@ python zt_cli.py scan --profile production-profile --output ./reports/zt_audit_r
 ---
 
 ## 📊 Sample Output (JSON)
-```bash
+```json
 {
     "metadata": {
         "philosophy": "Zero Trust Model: Never Trust, Always Verify. Enforcing IMDSv2 and strict network boundaries.",
