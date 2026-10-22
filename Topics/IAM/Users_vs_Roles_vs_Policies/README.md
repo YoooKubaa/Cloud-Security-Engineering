@@ -49,7 +49,7 @@ python iam_core_cli.py audit --profile production-profile --output ./reports/iam
 
 ## 📊 Sample Output (JSON)
 
-```bash
+```json
 {
     "metadata": {
         "philosophy": "IAM Core: Enforce strict separation between human users and workload roles, validating trust boundaries.",

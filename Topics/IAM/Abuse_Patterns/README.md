@@ -46,7 +46,7 @@ python abuse_auditor_cli.py scan --profile production --output ./reports/abuse_a
 
 ## 📊 Sample Output (JSON)
 
-```bash 
+```json
 {
     "metadata": {
         "philosophy": "Abuse Patterns: Proactively hunt for privilege escalation paths, admin sprawl, and dangerous permission combinations.",

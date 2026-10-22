@@ -49,7 +49,7 @@ python srm_cli.py scan --profile default --output ./reports/srm_scan_results.jso
 
 ## 📊 Sample Output (JSON)
 
-```bash
+```json
 {
     "metadata": {
         "philosophy": "Customer is responsible for security 'IN the cloud' (services configuration, IAM, data, patching).",

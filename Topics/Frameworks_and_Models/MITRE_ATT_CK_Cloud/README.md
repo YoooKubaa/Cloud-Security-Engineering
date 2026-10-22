@@ -42,7 +42,7 @@ python cam_mapper.py analyze --input ./logs/cloudtrail_events.json --output ./re
 
 ## 📊 Sample Output (JSON)
 
-```bash
+```json
 {
     "metadata": {
         "philosophy": "Cloud ATT&CK Mapper: Translating cloud telemetry into actionable threat intelligence.",

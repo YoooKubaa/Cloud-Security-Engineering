@@ -51,7 +51,7 @@ python asm_cli.py scan --profile production-profile --output ./reports/asm_audit
 
 ## 📊 Sample Output (JSON)
 
-```bash 
+```json
 {
     "metadata": {
         "philosophy": "Attack Surface Management: Continuously map and evaluate dynamic cloud exposure points.",

@@ -50,7 +50,8 @@ python did_cli.py scan --profile production-profile --output ./reports/did_audit
 ---
 
 ## 📊 Sample Output (JSON)
-```bash
+
+```json
 {
     "metadata": {
         "philosophy": "Defense in Depth: Multiple independent security controls protecting the same asset.",

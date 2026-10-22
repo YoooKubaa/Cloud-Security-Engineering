@@ -50,7 +50,7 @@ python ckc_cli.py scan --profile production-profile --output ./reports/ckc_audit
 ---
 
 ## 📊 Sample Output (JSON)
-```bash
+```json
 {
     "metadata": {
         "philosophy": "Cloud Kill Chain: Prevent rapid compromise by detecting early-stage vectors (Discovery, PrivEsc, Defense Evasion).",
