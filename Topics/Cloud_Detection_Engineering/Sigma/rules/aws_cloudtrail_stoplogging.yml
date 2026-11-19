@@ -1,0 +1,21 @@
+title: AWS CloudTrail Logging Disabled or Deleted
+id: 8f9e2b10-4c7a-49d1-b8e2-7a1c9f04d211
+status: stable
+description: Detects attempts to stop or delete an AWS CloudTrail trail (MITRE ATT&CK T1562.008 - Defense Evasion).
+author: Jakub (Cloud Security Engineering Portfolio)
+date: 2026/11/19
+logsource:
+  product: aws
+  service: cloudtrail
+detection:
+  selection:
+    eventName:
+      - StopLogging
+      - DeleteTrail
+  condition: selection
+falsepositives:
+  - Planned infrastructure decommissioning by authorized DevOps automation
+level: critical
+tags:
+  - attack.defense_evasion
+  - attack.t1562.008
